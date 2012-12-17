@@ -13,7 +13,10 @@ public class Destroyable : MonoBehaviour
 	void OnKill()
 	{
 		Director.singleton.OnCityDestroyed();
-		Instantiate(boom, transform.position, transform.rotation);
+		if(boom != null)
+		{
+			Instantiate(boom, transform.position, transform.rotation);
+		}
 		Destroy(gameObject);
 	}
 }
